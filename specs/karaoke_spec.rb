@@ -7,10 +7,12 @@ class TestKaraoke_Bar < Minitest::Test
 
   def setup
     @karaoke_bar_1 = Karaoke_Bar.new("From The Top")
-    @rock_room = Room.new("Rock Room")
-    @pop_room = Room.new("Pop Room")
-    @metal_room = Room.new("Metal Room")
-    @eighties_room = Room.new("Eighties Room")
+    @room_1 = Room.new("Rock Room")
+    @room_2 = Room.new("Pop Room")
+    @room_3 = Room.new("Metal Room")
+    @room_4 = Room.new("Eighties Room")
+    @room_5 = Room.new("Flight of the Conchords Room")
+    @room_6 = Room.new("Animal Sounds Room")
   end
 
   def test_get_karaoke_bar_name
@@ -18,14 +20,14 @@ class TestKaraoke_Bar < Minitest::Test
   end
 
   def test_get_karaoke_bar_rooms__1_room
-    @karaoke_bar_1.add_new_room(@rock_room)
+    @karaoke_bar_1.add_new_room(@room_1)
     assert_equal(1, @karaoke_bar_1.rooms.count)
   end
 
   def test_get_karaoke_bar_rooms__3_rooms
-    @karaoke_bar_1.add_new_room(@rock_room)
-    @karaoke_bar_1.add_new_room(@pop_room)
-    @karaoke_bar_1.add_new_room(@metal_room)
+    @karaoke_bar_1.add_new_room(@room_1)
+    @karaoke_bar_1.add_new_room(@room_2)
+    @karaoke_bar_1.add_new_room(@room_3)
     assert_equal(3, @karaoke_bar_1.rooms.count)
   end
 
