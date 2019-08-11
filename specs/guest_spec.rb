@@ -6,8 +6,8 @@ class TestGuest < Minitest::Test
 
   def setup
     @guest_1 = Guest.new("Marion", 34.00)
-    @guest_2 = Guest.new("Lucy", 50.00)
-    @guest_3 = Guest.new("Brian", 83.20)
+    @guest_2 = Guest.new("Lucy", 27.50)
+    @guest_3 = Guest.new("Brian", 130.00)
   end
 
   def test_get_guest_name
@@ -15,7 +15,7 @@ class TestGuest < Minitest::Test
   end
 
   def test_get_guest_funds
-    assert_equal(34.00, @guest_2.funds)
+    assert_equal(34.00, @guest_1.funds)
   end
 
 end
