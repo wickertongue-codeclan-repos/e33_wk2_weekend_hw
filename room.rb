@@ -7,7 +7,7 @@ class Room
     @max_space = max_space
     @guests_in_room = []
     @playlist = []
-    @tab = []
+    @tab = 0
   end
 
   def add_guest_to_room(guest)
@@ -27,7 +27,11 @@ class Room
   end
 
   def current_space
-      current_space = max_space - @guests_in_room.count
+    current_space = max_space - @guests_in_room.count
+  end
+
+  def add_to_tab(amount)
+    @tab += amount
   end
 
 end

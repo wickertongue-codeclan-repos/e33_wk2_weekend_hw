@@ -25,6 +25,7 @@ class Karaoke_Bar
   def check_in(guest, room)
     if room.current_space > 0
       room.add_guest_to_room(guest)
+      room.add_to_tab(15.00)
     else
       room.clear_room
     end
