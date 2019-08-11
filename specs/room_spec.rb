@@ -68,4 +68,8 @@ class TestRoom < Minitest::Test
     assert_equal(0, @room_1.guests_in_room.count)
   end
 
+  def test_current_space_in_room
+    assert_equal(4, @room_3.current_space)
+  end
+
 end

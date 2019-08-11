@@ -1,7 +1,6 @@
 class Room
 
-  attr_reader :name, :guests_in_room, :playlist, :tab
-  attr_accessor :max_space
+  attr_reader :name, :guests_in_room, :playlist, :tab, :max_space
 
   def initialize(name, max_space)
     @name = name
@@ -27,5 +26,8 @@ class Room
     @guests_in_room.clear
   end
 
+  def current_space
+      current_space = max_space - @guests_in_room.count
+  end
 
 end
