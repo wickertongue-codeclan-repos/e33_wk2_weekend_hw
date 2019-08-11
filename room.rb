@@ -12,4 +12,8 @@ class Room
     @guests_in_room.push(name)
   end
 
+  def add_to_playlist(song)
+    @playlist.push(song)
+  end
+
 end

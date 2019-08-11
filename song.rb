@@ -6,8 +6,6 @@ class Song
     @artist_name = artist_name
     @track_name = track_name
     @genre = genre
-    @location_on_playlist = 0
   end
-
 
 end
