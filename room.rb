@@ -34,4 +34,8 @@ class Room
     @tab += amount
   end
 
+  def number_of_guests_in_room
+    @guests_in_room.count
+  end
+
 end

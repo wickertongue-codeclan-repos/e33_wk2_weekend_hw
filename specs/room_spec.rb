@@ -21,60 +21,67 @@ class TestRoom < Minitest::Test
     @song_3 = Song.new("A.M. 180", "Grandaddy", "Rock")
   end
 
-  # def test_get_room_name
-  #   assert_equal("Rock Room", @room_1.name)
-  # end
-  #
-  # def test_get_max_space
-  #   assert_equal(12, @room_1.max_space)
-  # end
-  #
-  # def test_get_guests_in_room__1_guest
-  #   @room_1.add_guest_to_room(@guest_1)
-  #   assert_equal(1, @room_1.guests_in_room.count)
-  # end
-  #
-  # def test_get_guests_in_room__3_guests
-  #   @room_1.add_guest_to_room(@guest_1)
-  #   @room_1.add_guest_to_room(@guest_2)
-  #   @room_1.add_guest_to_room(@guest_3)
-  #   assert_equal(3, @room_1.guests_in_room.count)
-  # end
-  #
-  # def test_get_playlist
-  #   assert_equal([], @room_1.playlist)
-  # end
-  #
-  # def test_song_added_to_playlist__2_songs
-  #   @room_1.add_to_playlist(@song_1)
-  #   @room_1.add_to_playlist(@song_2)
-  #   assert_equal(2, @room_1.playlist.count)
-  # end
-  #
-  # def test_remove_guest___3_guests
-  #   @room_1.add_guest_to_room(@guest_1)
-  #   @room_1.add_guest_to_room(@guest_2)
-  #   @room_1.add_guest_to_room(@guest_3)
-  #   @room_1.remove_guest_from_room(@guest_2)
-  #   @room_1.remove_guest_from_room(@guest_3)
-  #   assert_equal(1, @room_1.guests_in_room.count)
-  # end
-  #
-  # def test_clear_room
-  #   @room_1.add_guest_to_room(@guest_1)
-  #   @room_1.add_guest_to_room(@guest_2)
-  #   @room_1.add_guest_to_room(@guest_3)
-  #   @room_1.clear_room
-  #   assert_equal(0, @room_1.guests_in_room.count)
-  # end
-  #
-  # def test_current_space_in_room
-  #   assert_equal(4, @room_3.current_space)
-  # end
+  def test_get_room_name
+    assert_equal("Rock Room", @room_1.name)
+  end
 
-  # def test_add_to_tab
-  #   @room_1.add_to_tab(100)
-  #   assert_equal(100, @room_1.tab)
-  # end
+  def test_get_max_space
+    assert_equal(12, @room_1.max_space)
+  end
+
+  def test_get_guests_in_room__1_guest
+    @room_1.add_guest_to_room(@guest_1)
+    assert_equal(1, @room_1.guests_in_room.count)
+  end
+
+  def test_get_guests_in_room__3_guests
+    @room_1.add_guest_to_room(@guest_1)
+    @room_1.add_guest_to_room(@guest_2)
+    @room_1.add_guest_to_room(@guest_3)
+    assert_equal(3, @room_1.guests_in_room.count)
+  end
+
+  def test_get_playlist
+    assert_equal([], @room_1.playlist)
+  end
+
+  def test_song_added_to_playlist__2_songs
+    @room_1.add_to_playlist(@song_1)
+    @room_1.add_to_playlist(@song_2)
+    assert_equal(2, @room_1.playlist.count)
+  end
+
+  def test_remove_guest___3_guests
+    @room_1.add_guest_to_room(@guest_1)
+    @room_1.add_guest_to_room(@guest_2)
+    @room_1.add_guest_to_room(@guest_3)
+    @room_1.remove_guest_from_room(@guest_2)
+    @room_1.remove_guest_from_room(@guest_3)
+    assert_equal(1, @room_1.guests_in_room.count)
+  end
+
+  def test_clear_room
+    @room_1.add_guest_to_room(@guest_1)
+    @room_1.add_guest_to_room(@guest_2)
+    @room_1.add_guest_to_room(@guest_3)
+    @room_1.clear_room
+    assert_equal(0, @room_1.guests_in_room.count)
+  end
+
+  def test_current_space_in_room
+    assert_equal(4, @room_3.current_space)
+  end
+
+  def test_add_to_tab
+    @room_1.add_to_tab(100)
+    assert_equal(100, @room_1.tab)
+  end
+
+  def test_number_of_guests_in_room
+    @room_3.add_guest_to_room(@guest_1)
+    @room_3.add_guest_to_room(@guest_2)
+    @room_3.add_guest_to_room(@guest_3)
+    assert_equal(3, @room_3.number_of_guests_in_room)
+  end
 
 end

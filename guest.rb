@@ -7,5 +7,8 @@ class Guest
     @funds = funds
   end
 
+  def pays_tab(amount)
+    @funds -= amount
+  end
 
 end

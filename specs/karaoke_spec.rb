@@ -58,6 +58,7 @@ class TestKaraoke_Bar < Minitest::Test
     @karaoke_bar_1.check_in(@guest_2, @room_2)
     @karaoke_bar_1.check_in(@guest_3, @room_2)
     assert_equal(3, @karaoke_bar_1.number_of_guests_in_room(@room_2))
+    assert_equal(45.00, @room_2.tab)
   end
 
   def test_get_max_space_from_room
@@ -109,14 +110,46 @@ class TestKaraoke_Bar < Minitest::Test
     @karaoke_bar_1.check_in(@guest_2, @room_3)
     @karaoke_bar_1.check_in(@guest_3, @room_3)
     @karaoke_bar_1.check_in(@guest_4, @room_3)
-    @karaoke_bar_1.check_out_room(@room_3)
+    @karaoke_bar_1.check_out_room_split_tab(@room_3)
     assert_equal(0, @karaoke_bar_1.number_of_guests_in_room(@room_3))
   end
 
   def test_add_money_to_till
     @karaoke_bar_1.add_money_to_till(1000)
-    assert_equal([1000], @karaoke_bar_1.till)
+    assert_equal(1000, @karaoke_bar_1.till)
   end
+
+  def test_get_tab_for_room
+    @karaoke_bar_1.add_new_room(@room_3)
+    @karaoke_bar_1.check_in(@guest_1, @room_3)
+    @karaoke_bar_1.check_in(@guest_2, @room_3)
+    @karaoke_bar_1.check_in(@guest_3, @room_3)
+    @karaoke_bar_1.check_in(@guest_4, @room_3)
+    assert_equal(60.00, @room_3.tab)
+  end
+
+  def test_check_out_room_split_tab
+      @karaoke_bar_1.add_money_to_till(1000.00)
+      @karaoke_bar_1.add_new_room(@room_3)
+      @karaoke_bar_1.check_in(@guest_1, @room_3)
+      @karaoke_bar_1.check_in(@guest_2, @room_3)
+      @karaoke_bar_1.check_in(@guest_3, @room_3)
+      @karaoke_bar_1.check_in(@guest_4, @room_3)
+      @karaoke_bar_1.check_out_room_split_tab(@room_3)
+      assert_equal(60.00, @room_3.tab)
+      assert_equal(115.00, @guest_3.funds)
+      assert_equal(1060, @karaoke_bar_1.till)
+  end
+
+  # def test_check_out_room_no_split
+  #     @karaoke_bar_1.add_new_room(@room_3)
+  #     @karaoke_bar_1.check_in(@guest_1, @room_3)
+  #     @karaoke_bar_1.check_in(@guest_2, @room_3)
+  #     @karaoke_bar_1.check_in(@guest_3, @room_3)
+  #     @karaoke_bar_1.check_in(@guest_4, @room_3)
+  #     @karaoke_bar_1.check_out_room_no_split(@room_3)
+  #     assert_equal(60.00, @room_3.tab)
+  # end
 
 
 ## To Do:
